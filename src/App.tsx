@@ -8,10 +8,12 @@ import {Song} from "./pages/Song/Song";
 function App() {
   return (
     <div>
-      <NavBar/>
+
       <BrowserRouter>
+        <NavBar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/home" element={<Home/>}/>
           <Route path="/song/:id" element={<Song/>}/>
         </Routes>
       </BrowserRouter>

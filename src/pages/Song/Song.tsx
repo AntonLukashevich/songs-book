@@ -4,6 +4,7 @@ import {useParams } from 'react-router-dom';
 import {ISongPageParams} from "../../utils/interfaces/songPageParamsIntreface";
 import {SongPart} from "./Components/SongPart/SongPart";
 import {STYLES} from "./constants";
+import {SongTools} from "./Components/SongTools/SongTools";
 
 export const Song = () => {
   let [song, setSong] = React.useState<ISong>()
@@ -17,11 +18,11 @@ export const Song = () => {
         setSong(song)
         console.log(song)
       })
-  }, [])
-
+  }, [params])
 
   return(
     <div style={STYLES.song}>
+      <SongTools/>
       { song?.items?.map( (item, index) => {
         return(
           <SongPart songItem={item} index={index}/>

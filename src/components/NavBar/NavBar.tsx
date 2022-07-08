@@ -1,5 +1,6 @@
 import React from "react";
 import {AppBar, Typography, IconButton, Toolbar} from "@mui/material";
+import {Link} from "react-router-dom";
 
 export const NavBar = () => {
   return(
@@ -9,7 +10,7 @@ export const NavBar = () => {
 
         </IconButton>
         <Typography variant="h6" color="inherit" component="div">
-          SONGS
+          <Link to={`/home`}>SONGS</Link>
         </Typography>
       </Toolbar>
     </AppBar>
