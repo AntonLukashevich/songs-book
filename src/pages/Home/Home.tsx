@@ -1,29 +1,22 @@
 import React, {useEffect} from "react";
-import {SongList} from "./Components/SongList";
-import {ISong} from "../../utils/interfaces/songInterface";
+import {Box} from "@mui/material";
+
+import {SongList} from "./components/SongList";
+import {useHome} from "./useHome";
 
 export const Home = () => {
-  let [songs, setSongs] = React.useState<ISong[]>([])
   const [loading, setLoading] = React.useState(true)
+  const {loadSongs, songs} = useHome();
 
   useEffect(() => {
-    fetch('https://demo-lyrics-api.herokuapp.com/api/lyrics')
-      .then(response => response.json())
-      .then(songs => {
-        setTimeout(() => {
-          setSongs(songs)
-          console.log(songs)
-          setLoading(false)
-        }, 1500)
-
-      })
+    loadSongs()
+    setLoading(false)
   }, [])
 
   return (
-    <div>
+    <Box>
       {loading && <p>loading...</p>}
-      {songs.length ? (<SongList songs={songs} />) : ( loading ? null : <p> no todos</p>)}
-    </div>
+      {songs ? (<SongList songs={songs} />) : ( loading ? null : <p> no songs</p>)}
+    </Box>
   )
-
 }

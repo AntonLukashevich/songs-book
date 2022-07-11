@@ -1,0 +1,1 @@
+export const CHORD_CHAIN = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "Bb", "H"];

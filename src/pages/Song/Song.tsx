@@ -1,33 +1,30 @@
 import React, {useEffect} from "react";
-import {ISong} from "../../utils/interfaces/songInterface";
 import {useParams } from 'react-router-dom';
-import {ISongPageParams} from "../../utils/interfaces/songPageParamsIntreface";
-import {SongPart} from "./Components/SongPart/SongPart";
+import {Box} from "@mui/material";
+
+import {ISongPageParams} from "../../utils/interfaces";
+import {SongTools} from "./components/SongTools/SongTools";
+import {SongPart} from "./components/SongPart/SongPart";
 import {STYLES} from "./constants";
-import {SongTools} from "./Components/SongTools/SongTools";
+import {useSong} from "./useSong";
 
 export const Song = () => {
-  let [song, setSong] = React.useState<ISong>()
   const params = useParams();
+  const {song, loadSong} = useSong()
 
   useEffect(() => {
     const songId = (params as unknown as ISongPageParams).id
-    fetch(`https://demo-lyrics-api.herokuapp.com/api/lyrics/${songId}`)
-      .then(response => response.json())
-      .then(song => {
-        setSong(song)
-        console.log(song)
-      })
-  }, [params])
+    loadSong(songId)
+  }, [])
 
   return(
-    <div style={STYLES.song}>
+    <Box style={STYLES.song}>
       <SongTools/>
       { song?.items?.map( (item, index) => {
         return(
-          <SongPart songItem={item} index={index}/>
+          <SongPart songItem={item} index={index} key={`${item.name + index}`}/>
         )
       })}
-    </div>
+    </Box>
   )
 }

@@ -9,9 +9,11 @@ export const STYLES = {
     paddingTop: '45px',
     fontSize: '12px'
   },
-
   line: {
     paddingTop: '5px',
-    paddingLeft: '15px'
+    paddingLeft: '15px',
+  },
+  chordsLine: {
+    whiteSpace: 'break-spaces'
   }
 }
