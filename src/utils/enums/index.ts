@@ -1,2 +1,2 @@
 export * from './routePaths'
-export * from './changeTon'
+export * from './tonDirection'

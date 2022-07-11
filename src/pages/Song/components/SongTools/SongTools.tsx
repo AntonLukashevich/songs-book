@@ -1,7 +1,7 @@
 import React from "react";
 import {Box, Button} from "@mui/material";
 
-import {ChangeTon} from "../../../../utils/enums";
+import {TonDirection} from "../../../../utils/enums";
 import {IProps} from "./propsInterface";
 import {STYLES} from "./constants";
 
@@ -14,10 +14,10 @@ export const SongTools = ({handleChange, isOpen, changeTon}: IProps) => {
     <Box sx={STYLES.wrapper}>
       {isOpen &&
         <Box>
-          <Button onClick={ () => { changeTon(ChangeTon.increase)} }>
+          <Button onClick={ () => { changeTon(TonDirection.increase)} }>
             <AddOutlinedIcon color="success"></AddOutlinedIcon>
           </Button>
-          <Button onClick={ () => { changeTon(ChangeTon.decrease)} }>
+          <Button onClick={ () => { changeTon(TonDirection.decrease)} }>
             <RemoveOutlinedIcon color="success"></RemoveOutlinedIcon></Button>
         </Box>
       }
