@@ -1,0 +1,1 @@
+export const GENRES: string[] = ['Pop', 'Hip hop', 'Rock', 'Rhythm and blues', 'Soul', 'Reggae', 'Country', 'Funk'];
