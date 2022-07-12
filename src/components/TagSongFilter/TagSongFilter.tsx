@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {
   Box,
   Checkbox,
@@ -7,23 +7,12 @@ import {
   ListItemText,
   MenuItem,
   OutlinedInput,
-  Select, SelectChangeEvent
+  Select
 } from "@mui/material";
 
+import {MENU_PROPS} from "../SearchInput/constants";
 import {GENRES} from "../../utils/constants";
 import {IProps} from "./propsInterface";
-
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 270,
-    },
-  },
-};
 
 export const TagSongFilter = ({genres, tagsQuery}:IProps) => {
 
@@ -46,7 +35,7 @@ export const TagSongFilter = ({genres, tagsQuery}:IProps) => {
             value={genres}
             input={<OutlinedInput label="Genre" />}
             renderValue={(selected) => selected.join(', ')}
-            MenuProps={MenuProps}
+            MenuProps={MENU_PROPS}
           >
             {GENRES.map((genre) => (
               <MenuItem key={genre} value={genre}>
