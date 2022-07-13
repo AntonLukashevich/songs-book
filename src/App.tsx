@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path={BaseRoutePaths.home} element={<Home/>}/>
           <Route path={`${BaseRoutePaths.song}/:id`} element={<Song/>}/>
-          <Route path='/' element={ <Navigate to={BaseRoutePaths.home}/>}/>
+          <Route path='/' element={<Navigate to={BaseRoutePaths.home}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

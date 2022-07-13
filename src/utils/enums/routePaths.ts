@@ -1,4 +1,4 @@
-export enum BaseRoutePaths{
+export enum BaseRoutePaths {
   home = '/',
   song = '/song'
 }

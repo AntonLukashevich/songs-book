@@ -1,5 +1,5 @@
 export const STYLES = {
-  li1: {
+  li: {
     textAlign: 'left',
     paddingLeft: '15px'
   }

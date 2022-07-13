@@ -4,5 +4,4 @@ export const STYLES = {
     display: 'flex',
     flexDirection: 'column' as 'column'
   }
-
 }

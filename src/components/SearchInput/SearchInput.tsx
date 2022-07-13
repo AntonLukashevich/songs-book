@@ -4,7 +4,7 @@ import {Box, TextField} from "@mui/material";
 import {IProps} from "./propsInterface";
 
 export const SearchInput = ({searchQuery}: IProps) => {
-  return(
+  return (
     <Box>
       <TextField
         hiddenLabel
@@ -13,7 +13,7 @@ export const SearchInput = ({searchQuery}: IProps) => {
         placeholder="Search"
         variant="filled"
         size="small"
-        onChange = {e => searchQuery(e.target.value)}
+        onChange={e => searchQuery(e.target.value)}
       />
     </Box>
   )

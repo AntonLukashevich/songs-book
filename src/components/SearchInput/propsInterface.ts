@@ -1,3 +1,3 @@
-export interface IProps{
-  searchQuery: (search: string) => void
+export interface IProps {
+  searchQuery: (search: string) => void;
 }

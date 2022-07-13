@@ -1,6 +1,6 @@
-import {useMemo, useState} from "react";
+import {useCallback, useMemo, useState} from "react";
 
-import {ISong} from "../../utils/interfaces";
+import {ISong, ISongItem, ISongItemLine} from "../../utils/interfaces";
 import {useApi} from "../../utils/hooks";
 
 export const useHome = () => {
@@ -10,29 +10,28 @@ export const useHome = () => {
   const [filteredSongs, setFilteredSongs] = useState<ISong[]>([])
   const [tags, setTags] = useState<string[]>([])
 
-  const searchSongs = useMemo( () => {
-    if(!searchTerm) return filteredSongs;
+  const searchSongs = useMemo(() => {
+    if (!searchTerm) return filteredSongs;
     return filteredSongs.filter(song => song.name.toLowerCase().includes(searchTerm)
-      || song.id.toString() == searchTerm
-      || song.items?.some((item: any) => item.lines?.some( (line: any) => line.text.toLowerCase().includes(searchTerm))))
+      || song.id.toString() === searchTerm
+      || song.items?.some((item: ISongItem) => item.lines?.some((line: ISongItemLine) => line.text.toLowerCase().includes(searchTerm))))
   }, [searchTerm, filteredSongs])
 
-  const tagFilter =  (tags: string[]) => {
+  const tagFilter = (tags: string[]) => {
     setTags(tags)
-     if(!tags.length){
-       setFilteredSongs(songs)
-       return
-     }
-    setFilteredSongs(songs.filter((song: ISong) => song.tags?.some( (tag: string) => tags.includes(tag))))
+    if (!tags.length) {
+      setFilteredSongs(songs)
+      return
+    }
+    setFilteredSongs(songs.filter((song: ISong) => song.tags?.some((tag: string) => tags.includes(tag))))
   }
 
-  const loadSongs = (): void => {
+  const loadSongs = useCallback((): void => {
     getAllSongs().then((response: ISong[]) => {
       setSongs(response)
-      setFilteredSongs(response
-      )
+      setFilteredSongs(response)
     })
-  };
+  },[]);
 
   return {
     songs,

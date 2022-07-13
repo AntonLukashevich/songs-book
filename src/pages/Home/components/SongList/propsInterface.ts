@@ -1,6 +1,5 @@
-import {ISong} from "../../../../utils/interfaces/songInterface";
-
+import {ISong} from "../../../../utils/interfaces";
 
 export interface IProps {
-  songs: ISong[] | null
+  songs: ISong[] | null;
 }

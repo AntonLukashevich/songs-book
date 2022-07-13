@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {Box} from "@mui/material";
 
 import {ISongPageParams} from "../../utils/interfaces";
@@ -17,7 +17,8 @@ export const Song = () => {
   useEffect(() => {
     const songId = (params as unknown as ISongPageParams).id
     loadSong(songId)
-  }, [])
+  }, [params, loadSong])
+
 
   const showSongTools = (): void => {
     setShowTools(!showTools)
@@ -27,19 +28,19 @@ export const Song = () => {
     setChordPos(chordPos + value)
   }
 
-  return(
-    <Box style={STYLES.song}>
+  return (
+    <Box sx={STYLES.song}>
       <SongTools handleChange={showSongTools}
                  isOpen={showTools}
                  changeTon={changeTonality}
       />
-      {song?.items?.map( (item, index) =>
-          <SongPart songItem={item}
-                    index={index}
-                    showChords={showTools}
-                    chordPosition={chordPos}
-                    key={`${item.name + index}`}
-          />
+      {song?.items?.map((item, index) =>
+        <SongPart songItem={item}
+                  index={index}
+                  showChords={showTools}
+                  chordPosition={chordPos}
+                  key={`${item.name + index}`}
+        />
       )}
     </Box>
   )

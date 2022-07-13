@@ -17,16 +17,16 @@ export const SongPart = ({songItem, index, showChords, chordPosition}: IProps) =
     }, '');
   }
 
-  return(
+  return (
     <Box sx={STYLES.wrapper}>
       <span style={STYLES.span}>{songItem.name}</span>
-      { songItem.lines.map((line:ISongItemLine, index: number) => {
-        return(
-          <Box style={STYLES.line} key={`${songItem.name + index}`}>
+      {songItem.lines.map((line: ISongItemLine, index: number) => {
+        return (
+          <Box sx={STYLES.line} key={`${songItem.name + index}`}>
             {showChords &&
               <Box sx={STYLES.chordsLine}>
-              {convertChordsToString(line.chords)}
-            </Box>
+                {convertChordsToString(line.chords)}
+              </Box>
             }
             <Box>
               {line.text}

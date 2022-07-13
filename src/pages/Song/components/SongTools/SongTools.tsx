@@ -14,10 +14,14 @@ export const SongTools = ({handleChange, isOpen, changeTon}: IProps) => {
     <Box sx={STYLES.wrapper}>
       {isOpen &&
         <Box>
-          <Button onClick={ () => { changeTon(TonDirection.decrease)} }>
+          <Button onClick={() => {
+            changeTon(TonDirection.decrease)
+          }}>
             <RemoveOutlinedIcon color="success"></RemoveOutlinedIcon>
           </Button>
-          <Button onClick={ () => { changeTon(TonDirection.increase)} }>
+          <Button onClick={() => {
+            changeTon(TonDirection.increase)
+          }}>
             <AddOutlinedIcon color="success"></AddOutlinedIcon>
           </Button>
         </Box>
