@@ -5,7 +5,7 @@ export const STYLES = {
     padding: 0
   },
   wrapper: {
-    width: '80vw',
-    margin: '0 auto'
+    // width: '80vw',
+    // margin: '0 auto'
   }
 }

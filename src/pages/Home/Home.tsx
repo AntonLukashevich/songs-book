@@ -5,6 +5,7 @@ import {SongList} from "./components/SongList";
 import {useHome} from "./useHome";
 import {SearchInput} from "../../components";
 import {TagSongFilter} from "../../components/TagSongFilter/TagSongFilter";
+import {STYLES} from "./constant";
 
 export const Home = () => {
   const [loading, setLoading] = useState<Boolean>(true)
@@ -16,8 +17,8 @@ export const Home = () => {
   }, [loadSongs])
 
   return (
-    <Box>
-      <Box sx={{display: 'flex'}}>
+    <Box sx={STYLES.wrapper}>
+      <Box sx={STYLES.searchTools}>
         <SearchInput searchQuery={setSearchTerm}/>
         <TagSongFilter tagsQuery={tagFilter} genres={tags}/>
       </Box>
